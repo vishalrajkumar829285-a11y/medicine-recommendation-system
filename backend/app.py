@@ -11,7 +11,16 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import BaseModel, Field
 from recommendation import assess
 DB_PATH=Path(__file__).with_name("carecompass.db"); TOKENS={}; security=HTTPBearer(); app=FastAPI(title="CareCompass API",version="1.1.0")
-app.add_middleware(CORSMiddleware,allow_origins=["http://localhost:5173"],allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://medicine-recommendation-system-woad.vercel.app"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 def connection():
  db=sqlite3.connect(DB_PATH);db.row_factory=sqlite3.Row;return db
 @app.on_event("startup")
