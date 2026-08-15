@@ -15,9 +15,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+        "https://medicine-recommendation-system-b5egpka80.vercel.app",
     ],
-    allow_origin_regex=r"https://medicine-recommendation-system-[a-z0-9-]+\.vercel\.app",
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
