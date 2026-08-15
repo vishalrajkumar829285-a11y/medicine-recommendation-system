@@ -14,12 +14,12 @@ DB_PATH=Path(__file__).with_name("carecompass.db"); TOKENS={}; security=HTTPBear
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-      "http://localhost:5173",
-      "https://medicine-recommendation-system-324k8mtv5.vercel.app"
-  ],
+        "http://localhost:5173",
+    ],
+    allow_origin_regex=r"https://medicine-recommendation-system-[a-z0-9-]+\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 def connection():
  db=sqlite3.connect(DB_PATH);db.row_factory=sqlite3.Row;return db
