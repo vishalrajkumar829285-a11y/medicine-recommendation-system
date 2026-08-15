@@ -14,9 +14,9 @@ DB_PATH=Path(__file__).with_name("carecompass.db"); TOKENS={}; security=HTTPBear
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
-        "https://medicine-recommendation-system-woad.vercel.app"
-    ],
+      "http://localhost:5173",
+      "https://medicine-recommendation-system-324k8mtv5.vercel.app"
+  ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
