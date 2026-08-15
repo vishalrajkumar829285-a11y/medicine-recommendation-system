@@ -1,7 +1,7 @@
 import React,{useEffect,useMemo,useState}from'react';
 import{createRoot}from'react-dom/client';
 import'./styles.css';
-const API='http://localhost:8000';
+const API='https://medicine-recommendation-system-1-zsdh.onrender.com';
 const symptoms=['Fever','Headache','Body Pain','Cough','Sore Throat','Runny Nose','Sneezing','Nausea','Diarrhea','Stomach Pain','Chest Pain','Difficulty Breathing'];
 const initial={age:'',gender:'Prefer not to say',weight:'',height:'',blood_pressure:'',sugar_level:'',symptoms:[],medical_history:'',allergies:''};
 async function api(path,token,options={}){const r=await fetch(API+path,{...options,headers:{'Content-Type':'application/json',...(token?{Authorization:`Bearer ${token}`}:{})}});if(!r.ok)throw Error((await r.json()).detail||'Request failed.');return r.json()}
