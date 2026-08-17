@@ -13,10 +13,7 @@ from recommendation import assess
 DB_PATH=Path(__file__).with_name("carecompass.db"); TOKENS={}; security=HTTPBearer(); app=FastAPI(title="CareCompass API",version="1.1.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "https://medicine-recommendation-system-b5egpka80.vercel.app",
-    ],
+    allow_origins=["*"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
